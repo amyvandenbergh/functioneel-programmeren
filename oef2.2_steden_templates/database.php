@@ -1,15 +1,17 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "steden";
+require_once "config.php";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+function GetData( $sql )
+{
+    // create connection
+    global $servername, $username, $password, $dbname;
 
-//check connection
-if ($conn -> connect_error){
-die ("connection failed: ".$conn->connect_error);
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
     // execute given query
     $result = $conn->query($sql);
@@ -30,4 +32,3 @@ die ("connection failed: ".$conn->connect_error);
     // return data array
     return $data;
 }
-?>
