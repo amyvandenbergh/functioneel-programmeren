@@ -20,7 +20,7 @@ include_once "connection.php";
 <?php
 
 $sql = "SELECT * FROM images WHERE img_id=" . $_GET['img_id'];
-$rows = GetData($sql);
+$rows = GetData('select*from image where img_id='.$_GET["img_id"]);
 
 foreach ($rows as $row) {
 
